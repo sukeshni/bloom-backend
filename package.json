@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "engines": {
-    "node": "^4.x"
+    "node": "~5.8.0"
   },
   "bugs": {
     "url": "https://github.com/givery-technology/bloom-backend/issues"
