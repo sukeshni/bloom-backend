@@ -9,7 +9,19 @@ var
 app.use(parser.json());
 
 app.get('/', function (req, res, next) {
-  res.json('Welcome!!');
+  res.json({
+    error: null,
+    result: {
+      message: "Welcome!!",
+      number: 472184,
+      numberlist: [
+        1, 2, 3,
+      ],
+      stringlist: [
+        "this", "is", "a", "pen"
+      ],
+    },
+  });
   return next();
 });
 
