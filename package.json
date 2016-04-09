@@ -1,0 +1,31 @@
+{
+  "name": "bloom",
+  "version": "1.0.0",
+  "description": "Show your small thankfulness",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/givery-technology/bloom-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/givery-technology/bloom-backend/issues"
+  },
+  "homepage": "https://github.com/givery-technology/bloom-backend#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  },
+  "dependencies": {
+    "bluebird": "^3.3.4",
+    "express": "^4.13.4",
+    "knex": "^0.10.0",
+    "pg": "^4.5.3",
+    "sqlite3": "^3.1.3"
+  }
+}
