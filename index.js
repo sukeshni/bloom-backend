@@ -4,42 +4,15 @@ var
   express = require('express'),
   app = express(),
   parser = require('body-parser'),
-  PORT = process.env.PORT;
+  port = process.env.PORT || 3000;
 
 app.use(parser.json());
+app.use(parser.urlencoded({extended: true}));
 
-app.get('/', function (req, res, next) {
-  res.json({
-    error: null,
-    result: {
-      message: "Welcome!!",
-      number: 472184,
-      numberlist: [
-        1, 2, 3,
-      ],
-      stringlist: [
-        "this", "is", "a", "pen"
-      ],
-    },
-  });
-  return next();
-});
+app.use('/', require('./routes/index'));
+app.use('/users', require('./routes/users'));
+app.use('/organizations', require('./routes/organizations'));
 
-app.get('/ping', function (req, res, next) {
-  res.json('PONG');
-  return next();
-});
-
-app.get('/notfound', function (req, res, next) {
-  res.status(404).json('NotFound');
-  return next();
-});
-
-app.post('/badrequest', function (req, res, next) {
-  res.status(400).json('BadRequest');
-  return next();
-})
-
-app.listen(PORT, function () {
-  console.log('Server running with port', PORT);
+app.listen(port, function () {
+  console.log('Server running with port', port);
 });

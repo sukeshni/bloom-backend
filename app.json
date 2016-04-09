@@ -5,7 +5,6 @@
   "success_url": "/",
   "image": "heroku/nodejs",
   "addons": [
-    "heroku-postgresql:hobby-dev",
     "papertrail:choklad"
   ]
 }
