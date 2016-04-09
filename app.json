@@ -1,0 +1,11 @@
+{
+  "name": "bloom",
+  "description": "Show your small thankfulness",
+  "repository": "https://github.com/givery-technology/bloom-backend.git",
+  "success_url": "/",
+  "image": "heroku/nodejs",
+  "addons": [
+    "heroku-postgresql:hobby-dev",
+    "papertrail:choklad"
+  ]
+}
