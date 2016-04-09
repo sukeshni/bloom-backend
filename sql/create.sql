@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS users (
   name varchar(100) NOT NULL,
   password varchar(100) NOT NULL,
   email varchar(100) NOT NULL UNIQUE,
+  image_url varchar(200) NULL,
   created_at date NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -13,6 +14,7 @@ CREATE TABLE IF NOT EXISTS organizations (
   id integer PRIMARY KEY AUTOINCREMENT,
   name varchar(100) NOT NULL UNIQUE,
   owner_id integer NOT NULL,
+  image_url varchar(100) NULL,
   created_at date NOT NULL DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY(owner_id) REFERENCES users(id)
 );
