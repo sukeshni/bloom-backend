@@ -17,13 +17,10 @@ CREATE TABLE IF NOT EXISTS organizations (
   FOREIGN KEY(owner_id) REFERENCES users(id)
 );
 
--- Note: invited_at and accepted_at are not used yet. Any member present in organization_members is memeber of that organization
 CREATE TABLE IF NOT EXISTS organization_members (
   id integer PRIMARY KEY AUTOINCREMENT,
   organization_id integer NOT NULL,
   user_id integer NOT NULL,
-  invited_at date NULL DEFAULT CURRENT_TIMESTAMP,
-  accepted_at date NULL,
   FOREIGN KEY(organization_id) REFERENCES organizations(id),
   FOREIGN KEY(user_id) REFERENCES users(id),
   UNIQUE(organization_id, user_id)
