@@ -9,7 +9,9 @@ var
 app.use(parser.json());
 app.use(parser.urlencoded({extended: true}));
 
-app.use(require('./controllers'));
+app.use('/', require('./routes/index'));
+app.use('/users', require('./routes/users'));
+app.use('/organizations', require('./routes/organizations'));
 
 app.listen(port, function () {
   console.log('Server running with port', port);

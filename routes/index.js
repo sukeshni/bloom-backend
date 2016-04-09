@@ -2,9 +2,6 @@ var
   express = require('express'),
   router = express.Router();
 
-router.use('/users', require('./users'));
-router.use('/organizations', require('./organizations'));
-
 router.get('/', function (req, res, next) {
   res.json({
     error: null,
