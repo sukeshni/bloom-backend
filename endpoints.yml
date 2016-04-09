@@ -75,7 +75,6 @@
       message: string
     responses:
       201: None
-# Data to show in timeline
 
 ---
 
