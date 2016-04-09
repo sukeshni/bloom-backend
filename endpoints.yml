@@ -1,17 +1,132 @@
 - /auth: 
-  - POST /auth/signup
-  - POST /auth/signin
+  POST /auth/signup:
+    params:
+      email: string
+      password: string
+    responses:
+      201:
+        user:
+          id: number
+          name: string
+          image_url: string
+        token: "dummytoken"
+  POST /auth/signin:
+    params:
+      organization_name: string
+      email: string
+      password: string
+    responses:
+      200:
+        user:
+          id: number
+          name: string
+          image_url: string
+        token: "dummytoken"
 
-- /users:
-  - GET /users
-  - GET /users/:id
-  - GET /users/:id/flowers
-  - POST /users/:id/flowers
+---
+
+/users:
+  GET /users:
+    params:
+      offset: number || 0
+      limit: number || 20
+    responses:
+      200:
+        users:
+          - user:
+            id: number
+            name: string
+            image_url: string
+  GET /users/:id:
+    params: None
+    responses:
+      200:
+        user:
+          id: number
+          name: string
+          image_url: string
+        flowers:
+          - name: string
+            count: number
+      404:
+        message: "User Not Found"
+  GET /users/:id/flowers:
+    params:
+      begin_id: number # of sender
+      limit: number || 20
+    responses:
+      200:
+        flowers:
+          - name: string
+            count: number
+        - send:
+            send_id: number
+            sender:
+              id: int
+              name: string
+              image_url: string
+            flower_name: string
+            message: string
+  POST /users/:id/flowers:
+    params:
+      sender_id: number
+      reciever_id: number
+      flower_name: string
+      message: string
+    responses:
+      201: None
+# Data to show in timeline
+
+---
+
 
 - /organizations: 
-  - GET /organizations
-  - POST /organizations
-  - GET /organizations/:id
-  - GET /organizations/:id/flowers
+  GET /organizations:
+    params:
+      offset: number || 0
+      limit: number || 20
+    responses:
+      200:
+        organizations:
+          - organization:
+            id: number
+            name: string
+            image_url: string
+  POST /organizations:
+    params:
+      organization_name: string
+    responses:
+      201:
+        organization:
+          id: number
+          name: string
+          image_url: string
+  GET /organizations/:id:
+    params: None
+    responses:
+      200:
+        organization:
+          id: number
+          name: string
+          image_url: string
+        flowers:
+          - name: string
+            count: number
+      404:
+        message: "Organization Not Found"
+  GET /organizations/:id/flowers:
+    params:
+      begin_id: number # of sender
+      limit: number || 20
+    responses:
+      200:
+        flowers:
+          - name: string
+            count: number
+        - send:
+            send_id: number
+            flower_name: string
+            message: string
+
   - GET /organizations/:id/members
   - POST /organizations/:id/members
