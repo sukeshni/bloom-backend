@@ -1,0 +1,17 @@
+- /auth: 
+  - POST /auth/signup
+  - POST /auth/signin
+
+- /users:
+  - GET /users
+  - GET /users/:id
+  - GET /users/:id/flowers
+  - POST /users/:id/flowers
+
+- /organizations: 
+  - GET /organizations
+  - POST /organizations
+  - GET /organizations/:id
+  - GET /organizations/:id/flowers
+  - GET /organizations/:id/members
+  - POST /organizations/:id/members
