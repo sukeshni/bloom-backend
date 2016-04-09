@@ -4,6 +4,7 @@
   "description": "Show your small thankfulness",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,9 +27,9 @@
   },
   "dependencies": {
     "bluebird": "^3.3.4",
+    "body-parser": "^1.15.0",
     "express": "^4.13.4",
     "knex": "^0.10.0",
-    "pg": "^4.5.3",
     "sqlite3": "^3.1.3"
   }
 }
