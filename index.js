@@ -8,17 +8,22 @@ var
 
 app.use(parser.json());
 
-app.get('/api/ping', function (req, res, next) {
+app.get('/', function (req, res, next) {
+  res.json('Welcome!!');
+  return next();
+});
+
+app.get('/ping', function (req, res, next) {
   res.json('PONG');
   return next();
 });
 
-app.get('/api/notfound', function (req, res, next) {
+app.get('/notfound', function (req, res, next) {
   res.status(404).json('NotFound');
   return next();
 });
 
-app.post('/api/badrequest', function (req, res, next) {
+app.post('/badrequest', function (req, res, next) {
   res.status(400).json('BadRequest');
   return next();
 })
